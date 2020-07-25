@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="box">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <form method="POST" action="/shorten">
+        <div class="field">
+            <div class="control">
+                <input class="input is-large" type="url" name="url" placeholder="Paste your URL here">
+            </div>
+        </div>
+        <button class="button is-block is-info is-large is-fullwidth">Shorten</button>
+    </form>
+</div>
+{% endblock %}
